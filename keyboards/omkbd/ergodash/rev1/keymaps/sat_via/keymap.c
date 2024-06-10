@@ -110,6 +110,7 @@ float tone_qwerty[][2]     = SONG(QWERTY_SOUND);
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case LOWER:
+    case KC_ENT:
       if (record->event.pressed) {
         layer_on(_LOWER);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
@@ -120,6 +121,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
       break;
     case RAISE:
+    case KC_DEL:
       if (record->event.pressed) {
         layer_on(_RAISE);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
@@ -130,6 +132,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
       break;
     case ADJUST:
+    case KC_SCLN:
       if (record->event.pressed) {
         layer_on(_ADJUST);
       } else {
